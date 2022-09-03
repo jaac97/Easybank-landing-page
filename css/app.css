@@ -9,10 +9,12 @@
     --lightBlue: hsl(220, 16%, 96%);
     --veryLightBlue: hsl(0, 0%, 98%);
     --white:hsl(0, 0%, 100%);
+    --font: 'Public Sans', sans-serif;
+    --gradient1: linear-gradient(to right, var(--limeGreen), var(--brightCyan));
     }
     
 body{
-    background-color: red;
+    font-family: var(--font);
 }
 [class$="__container"]{
     max-width: 144rem;
@@ -20,31 +22,45 @@ body{
 }
 .bar{
     background-color: var(--white);
-    padding: 2rem;
+    padding: 0 2rem;
     position: relative;
 }
+/* @media (min-width: 768px){
+    .bar{
+        max-height: 6.2rem;
+    }
+} */
 .bar__content{
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+@media (min-width: 768px){
+    .bar__content{
+        height: 6.2rem;
+    }   
 }
 #bar__toggle{
     position: absolute;
 	top: -9999px;
 	left: -9999px;
 }
-/* .bar__btn{
-    all: unset;
-    width: 3rem;
-} */
 
 .bar__activated{
     display: block;
     width: 3rem;
     transition: all .3s ease-in-out;
+    position: relative;
 
 }
-
+@media (min-width: 768px){
+    #bar__toggle{
+        display: none;
+    }
+    .bar__activated{
+        display: none;
+    }
+}
 .bar__hamburger{
     padding: .1rem;
     width: 100%;
@@ -54,16 +70,11 @@ body{
     user-select: none;
     transform: rotate(0deg);
     transition: all .3s ease-in-out;
-
 }
 .bar__hamburger:last-of-type{
     margin-bottom: 0;
 }
 
-.bar__activated{
-    position: relative;
-
-}
 #bar__toggle:checked ~ .bar__activated .bar__hamburger{
     position: absolute;
     z-index: 1;
@@ -102,7 +113,35 @@ body{
 }
 
 @media (min-width: 768px){
-    nav, .bar__request{
-        display: block;
+    .nav, .bar__request{
+        display: flex;
+        position: static;
+        gap: 2rem;
+    }
+}
+.nav__child{
+    text-decoration: none;
+    color: var(--grayBlue);
+}
+@media (min-width: 768px){
+    .nav__child{
+        height: inherit;
+        position: relative;
+        cursor: pointer;
+        height: 6.2rem;
+        line-height: 3.2;
+    }
+    .nav__child:focus{
+        color: var(--darkBlue);
+    }
+    .nav__child:hover::after{
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background-image: var(--gradient1);
+            display: block;
+            height: .3rem;
+            width: 100%;
     }
 }
