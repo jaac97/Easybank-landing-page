@@ -145,3 +145,17 @@ body{
             width: 100%;
     }
 }
+
+.btn{
+    background-image: var(--gradient1);
+    border: none;
+    padding: 1rem 4rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    color: var(--white);
+    font-weight: 700;
+    transition: opacity .1s ease-in-out;
+}
+.btn:hover{
+    opacity: .8;
+}
