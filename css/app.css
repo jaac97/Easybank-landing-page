@@ -14,3 +14,95 @@
 body{
     background-color: red;
 }
+[class$="__container"]{
+    max-width: 144rem;
+    margin: 0 auto;
+}
+.bar{
+    background-color: var(--white);
+    padding: 2rem;
+    position: relative;
+}
+.bar__content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#bar__toggle{
+    position: absolute;
+	top: -9999px;
+	left: -9999px;
+}
+/* .bar__btn{
+    all: unset;
+    width: 3rem;
+} */
+
+.bar__activated{
+    display: block;
+    width: 3rem;
+    transition: all .3s ease-in-out;
+
+}
+
+.bar__hamburger{
+    padding: .1rem;
+    width: 100%;
+    display: block;
+    background-color: var(--darkBlue);
+    margin-bottom: .5rem;
+    user-select: none;
+    transform: rotate(0deg);
+    transition: all .3s ease-in-out;
+
+}
+.bar__hamburger:last-of-type{
+    margin-bottom: 0;
+}
+
+.bar__activated{
+    position: relative;
+
+}
+#bar__toggle:checked ~ .bar__activated .bar__hamburger{
+    position: absolute;
+    z-index: 1;
+    transition: all .3s ease-in-out;
+}
+#bar__toggle:checked ~ .bar__activated .bar__hamburger:nth-of-type(1)
+{
+    transform: rotate(45deg);
+}
+#bar__toggle:checked ~ .bar__activated .bar__hamburger:nth-of-type(2){
+    opacity: 0;
+}
+#bar__toggle:checked ~ .bar__activated .bar__hamburger:nth-of-type(3){
+    transform: rotate(-45deg);
+
+}
+
+#bar__toggle:checked ~ .nav{
+    position: absolute;
+    top: 10rem;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 1rem;
+    width: 80%;
+    border-radius: .5rem;
+}
+.nav, .bar__request{
+    display: none;
+}
+
+@media (min-width: 768px){
+    nav, .bar__request{
+        display: block;
+    }
+}
