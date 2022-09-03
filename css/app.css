@@ -1,0 +1,16 @@
+:root{
+
+    /* Primary */
+    --darkBlue: hsl(233, 26%, 24%);
+    --limeGreen: hsl(136, 65%, 51%);
+    --brightCyan: hsl(192, 70%, 51%);
+    /* Neutral */
+    --grayBlue:hsl(233, 8%, 62%);
+    --lightBlue: hsl(220, 16%, 96%);
+    --veryLightBlue: hsl(0, 0%, 98%);
+    --white:hsl(0, 0%, 100%);
+    }
+    
+body{
+    background-color: red;
+}
