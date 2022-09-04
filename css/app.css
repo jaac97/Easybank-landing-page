@@ -182,7 +182,7 @@ body {
 
 
 .hero {
-    min-height: calc(100vh - 6.4rem);
+    max-height: calc(100vh - 6.4rem);
     background-color: var(--veryLightBlue);
     position: relative;
     z-index: 1;
@@ -193,6 +193,8 @@ body {
 
 @media (min-width: 768px) {
     .hero {
+    min-height: calc(100vh - 6.4rem);
+
         grid-template-columns: 40% 1fr;
         grid-template-rows: none;
     }
@@ -202,7 +204,7 @@ body {
 }
 
 .hero__content {
-    padding: 6rem 2rem 0;
+    padding: 6rem 2rem;
     grid-row: 2/3;
     grid-column: 1/2;
     text-align: center;
