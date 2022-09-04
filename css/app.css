@@ -186,47 +186,99 @@ body {
     position: relative;
     z-index: 1;
     display: grid;
-    grid-template-columns: 40% 1fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: 40rem auto;
+}
+
+@media (min-width: 768px) {
+    .hero {
+        grid-template-columns: 40% 1fr;
+        grid-template-rows: none;
+    }
 }
 
 .hero__content {
-    grid-column: 1;
     align-self: center;
     padding: 4rem 2rem;
+    grid-row: 2/3;
+    grid-column: 1/2;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .hero__content {
+        grid-column: 1;
+        grid-row: unset;
+        text-align: left;
+    }
 }
 
 .hero__heading {
-    font-size: 5rem;
-    font-weight: 300;
+    font-size: 3rem;
+    grid-row: 2/3;
     margin-bottom: 2rem;
+
+}
+
+@media (min-width: 768px) {
+    .hero__heading {
+        font-size: 5rem;
+        font-weight: 300;
+    }
 }
 
 .hero__text {
     line-height: 1.5;
-    padding-right: 5rem;
     margin-bottom: 2rem;
+    color: var(--grayBlue);
+    text-align: justify;
+    font-size: 1.2rem;
+padding: 0 1.3rem;
 }
-
-.hero__images{
-  
+@media (min-width: 768px){
+    .hero__text{
+        text-align: left;
+    padding: 0 5rem 0 0;
+        font-size: 1.8rem;
+    }
+}
+.hero__images {
+    grid-row: 1/2;
     position: relative;
 }
-.hero__images::before{
+
+@media (min-width: 768px) {
+    .hero__images {
+        grid-row: unset;
+    }
+}
+
+.hero__images::before {
     background-image: url('../images/image-mockups.png');
     background-repeat: no-repeat;
     content: '';
     position: absolute;
     background-size: contain;
-    z-index: 10;
-    top: -100px;
-    right: -300px;
-    display: block;
-    width: 100%;
-    height: 120vh;
+    right: 0;
+    top: -117px;
+    height: 100%;
+    left: 0;
 }
 
-.hero__images::after{
-    background-image: url('../images/bg-intro-desktop.svg');
+@media (min-width: 768px) {
+    .hero__images::before {
+        top: -100px;
+        right: -300px;
+        display: block;
+        width: 100%;
+        height: 120vh;
+        left: unset;
+    }
+
+}
+
+.hero__images::after {
+    background-image: url('../images/bg-intro-mobile.svg');
     background-repeat: no-repeat;
     content: '';
     position: absolute;
@@ -236,4 +288,11 @@ body {
     display: block;
     width: 100%;
     height: 100%;
+}
+
+@media (min-width: 768px) {
+    .hero__images::after {
+        background-image: url('../images/bg-intro-desktop.svg');
+
+    }
 }
